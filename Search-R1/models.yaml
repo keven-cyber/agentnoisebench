@@ -1,0 +1,85 @@
+# models.yaml
+defaults:
+  max_completion_tokens: 512
+  temperature: 0.7
+  enable_thinking: null  # true | false | null 需要用就自己在 models 里覆盖
+  reasoning_effort: null # "low" | "medium" | "high" | null 需要用就自己在 models 里覆盖
+
+models:
+  # -------- 非推理（non-think） ----------
+  deepseek-v3-0324:  # 本身不支持思考，所以不写 enable_thinking
+    api_model: deepseek-v3-0324
+  qwen3-32b-without-thinking:
+    api_model: qwen3-32b # 支持思考，但这里测不思考条件下的表现
+    enable_thinking: false
+  gpt-5-mini:
+    api_model: gpt-5-mini
+  gemini-2.5-flash-without-thinking:
+    api_model: gemini-2.5-flash
+    enable_thinking: false
+  doubao-seed-1.6:
+    api_model: doubao-seed-1.6
+  gpt-4.1:
+    api_model: gpt-4.1
+  qwen3-235b-a22b-instruct-2507:
+    api_model: qwen3-235b-a22b-instruct-2507
+  deepseek-v3.1-without-thinking:
+    api_model: deepseek-v3.1
+    enable_thinking: false
+  deepseek-v3.2-exp-without-thinking:
+    api_model: deepseek-v3.2-exp
+    enable_thinking: false
+  qwen3-max:
+    api_model: qwen3-max
+  glm-4.5-without-thinking:
+    api_model: glm-4.5
+    enable_thinking: false
+  longcat-flash-chat:
+    api_model: longcat-flash-chat
+  claude-4-sonnet-without-thinking:
+    api_model: claude-4-sonnet
+    enable_thinking: false
+  claude-4.1-opus-without-thinking:
+    api_model: claude-4.1-opus
+    enable_thinking: false
+  gpt-3.5-turbo:
+    api_model: gpt-3.5-turbo
+
+  # -------- 推理（think） ----------
+  qwen3-32b-with-thinking:
+    api_model: qwen3-32b
+    enable_thinking: true
+  gemini-2.5-flash-with-thinking:
+    api_model: gemini-2.5-flash
+    enable_thinking: true
+  deepseek-r1-0528:
+    api_model: deepseek-r1-0528
+    enable_thinking: true
+  gemini-2.5-pro:
+    api_model: gemini-2.5-pro
+    enable_thinking: true
+  doubao-seed-1.6-Thinking:
+    api_model: doubao-seed-1.6-Thinking
+    enable_thinking: true
+  qwen3-235b-a22b-thinking-2507:
+    api_model: qwen3-235b-a22b-thinking-2507
+    enable_thinking: true
+  o4-mini:
+    api_model: o4-mini
+    enable_thinking: true
+    reasoning_effort: high
+  glm-4.5-with-thinking:
+    api_model: glm-4.5
+    enable_thinking: true
+  gpt-5:
+    api_model: gpt-5
+    reasoning_effort: high
+  claude-4-sonnet-with-thinking:
+    api_model: claude-4-sonnet
+    enable_thinking: true
+  longcat-flash-thinking:
+    api_model: longcat-flash-thinking
+    enable_thinking: true
+  grok-4:
+    api_model: grok-4
+    enable_thinking: true

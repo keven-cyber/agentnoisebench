@@ -1,0 +1,23 @@
+(searchr1) ykwang@Sui3:/data/ykwang/WORKSPACE/AgentBench/Search-R1$ mkdir -p ./wyk_logs && nohup bash scripts/nq_hotpotqa/evaluate.sh > ./wyk_logs/$(date +%Y%m%d_%H%M%S).log 2>&1 &
+[1] 529049
+
+
+2025/11/10 15:00
+(retriever) ykwang@Sui4:/NAS/ykwang/WORKSPACE/AgentBench/Agent_Noise/Search-R1$ bash retrieval_launch.sh
+Loading dataset shards: 100%|█████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 28/28 [00:00<00:00, 50.59it/s]
+INFO:     Started server process [528516]
+INFO:     Waiting for application startup.
+INFO:     Application startup complete.
+INFO:     Uvicorn running on http://0.0.0.0:8008 (Press CTRL+C to quit)
+
+
+
+(searchr1) ykwang@Sui4:/NAS/ykwang/WORKSPACE/AgentBench/Agent_Noise/Search-R1$ nohup bash scripts/nq_hotpotqa/evaluate_failure.sh > ./wyk_logs/failure/$(date +%Y%m%d_%H%M%S).log 2>&1 &
+[1] 640300
+
+
+(searchr1) ykwang@Sui4:/NAS/ykwang/WORKSPACE/AgentBench/Agent_Noise/Search-R1$ nohup bash scripts/nq_hotpotqa/batch_eval.sh > ./wyk_logs/batch_eval.log 2>&1 &
+[1] 222790
+
+(searchr1) ykwang@Sui4:/NAS/ykwang/WORKSPACE/AgentBench/Agent_Noise/Search-R1$ nohup bash scripts/nq_hotpotqa/batch_eval.sh > ./wyk_logs/batch_eval.log 2>&1 &
+1168534
