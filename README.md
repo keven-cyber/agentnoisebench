@@ -141,28 +141,6 @@ Once you have the datasets prepared, you can quickly run evaluations:
 - Add your model to `model.yaml`.
 - Run the evaluation scripts: `./vita_run.sh` for VitaBench or `./tau2_run.sh` for TAU2-Bench.
 
-### Reading the results
-
-For the `induce` and `redundant` categories, every injection is audited individually and the
-stability-gated score is written into `reward_info` of each simulation:
-
-| Field | Meaning |
-| --- | --- |
-| `step_deviations` | One entry per injection: `turn_idx`, `deviated` and the judge's `justification`. |
-| `traj_ok` | Conjunction of the per-step verdicts. `false` if any step deviated, `null` if the judge could not be reached. |
-| `task_success` | Task completion on its own, ungated. |
-| `sga` | `task_success * traj_ok` — the stability-gated success. `null` when `traj_ok` is `null`. |
-
-The other categories are not audited, so `traj_ok` stays `true` and `sga` equals `task_success`.
-
-Two things to keep in mind:
-
-- The judge reads its credentials from the `.env` pointed to by `NOISE_ENV_PATH`. Without it the
-  run still finishes and reports `reward`, but `traj_ok` and `sga` will be `null`.
-- A simulation that stops at `--max-steps` is scored as a premature termination and skips
-  evaluation entirely, so keep the default (`300` for VitaBench, `200` for TAU2-Bench) unless you
-  only want the trajectories.
-
 ## Test Search-R1
 
 1. Open a terminal and enter the Search-R1 directory.
