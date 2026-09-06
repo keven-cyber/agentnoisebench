@@ -30,6 +30,12 @@ data
 sft/output/*
 sft/data/*
 
+# the user-simulator guidelines are part of the benchmark, not downloaded data
+!tau2-bench-main/data/
+!tau2-bench-main/data/tau2/
+!tau2-bench-main/data/tau2/user_simulator/
+!tau2-bench-main/data/tau2/user_simulator/*.md
+
 # Distribution / packaging
 .Python
 build/
@@ -98,6 +104,7 @@ target/
 
 # pyenv
 .python-version
+!tau2-bench-main/.python-version
 
 # celery beat schedule file
 celerybeat-schedule
